@@ -3,7 +3,7 @@ import configparser
 
 
 config = configparser.ConfigParser()
-config.read('serial-read.ini')
+config.read('rig-sim.ini')
 
 serial_port = '/dev/ttyS0'
 baud_rate = 9600
