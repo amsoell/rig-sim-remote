@@ -22,8 +22,8 @@ ser = serial.Serial(
 
 print("Waiting for status")
 while True:
-    status = ser.readline()
-    if len(status)>0:
+    status = ser.read(17)
+    if len(status) > 0:
         print(
             "Transmission received: %s\n" % status +
             "Status: %s\n" % status[0] +
