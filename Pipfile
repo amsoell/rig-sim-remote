@@ -7,8 +7,8 @@ verify_ssl = true
 "flake8" = "*"
 
 [packages]
-pyserial = ">=3.4,<4.0"
+pyserial = "*"
 pyyaml = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.5"
