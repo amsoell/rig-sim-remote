@@ -33,6 +33,7 @@ while True:
             "Standpipe pressure: %f\n" % int.from_bytes(status[6:8], 'big') +
             "Mud volume: %f\n" % int.from_bytes(status[8:10], 'big') +
             "Trip tank volume: %f\n" % int.from_bytes(status[10:12], 'big') +
-            "RPM: %f\n" % status[12] +
-            "Torque: %f\n" % int.from_bytes(status[13:15], 'big')
+            "Mud return volume rate: %f\n" % int.from_bytes(status[12:14], 'big') +
+            "RPM: %f\n" % status[14] +
+            "Torque: %f\n" % int.from_bytes(status[15:17], 'big')
         )
