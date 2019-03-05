@@ -26,7 +26,7 @@ except serial.serialutil.SerialException:
 
 print("Waiting for status")
 while True:
-    status = ser.read(15)
+    status = ser.read(17)
     if len(status) > 0:
         print(
             "Transmission received: %s\n" % status +
