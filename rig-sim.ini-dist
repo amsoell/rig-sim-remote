@@ -1,3 +1,0 @@
-[Hardware]
-serial_port = /dev/ttyS0
-baud_rate = 9600

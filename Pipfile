@@ -8,6 +8,7 @@ verify_ssl = true
 
 [packages]
 pyserial = ">=3.4,<4.0"
+pyyaml = "*"
 
 [requires]
 python_version = "3.7"

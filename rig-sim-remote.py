@@ -1,24 +1,28 @@
 import serial
-import configparser
+import yaml
+import errno
+import sys
 
 
-config = configparser.ConfigParser()
-config.read('rig-sim.ini')
+try:
+    with open('rig-sim.yaml') as config_file:
+        config = yaml.safe_load(config_file)
+except (OSError, IOError) as exception:
+    if getattr(exception, 'errno', 0) == errno.ENOENT:
+        print("Configuration file not found")
+        sys.exit()
 
-serial_port = '/dev/ttyS0'
-baud_rate = 9600
-if 'Hardware' in config:
-    config_hardware = config['Hardware']
-    serial_port = config_hardware.get('serial_port', serial_port)
-    baud_rate = config_hardware.get('baud_rate', baud_rate)
-
-ser = serial.Serial(
-    port=serial_port,
-    baudrate=baud_rate,
-    parity=serial.PARITY_NONE,
-    bytesize=serial.EIGHTBITS,
-    timeout=1,
-)
+try:
+    ser = serial.Serial(
+        port=config['hardware']['serial_port'],
+        baudrate=config['hardware']['baud_rate'],
+        parity=config['hardware']['parity'],
+        bytesize=config['hardware']['bytesize'],
+        timeout=1,
+    ) if 'hardware' in config else None
+except serial.serialutil.SerialException:
+    print("Serial connection could not be established")
+    sys.exit()
 
 print("Waiting for status")
 while True:
