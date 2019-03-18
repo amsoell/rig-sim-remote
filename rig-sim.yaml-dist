@@ -1,5 +1,10 @@
-hardware:
-  serial_port: /dev/ttyS0
-  baud_rate: 9600
-  parity: N
-  bytesize: 8
+connections:
+  -
+    type: serial
+    port: /dev/ttyS0
+    baud_rate: 9600
+    parity: N
+    bytesize: 8
+  -
+    type: socket
+    port: 8080
