@@ -2,7 +2,7 @@
 
 > Basic python application to received rig-sim data readings via serial or socket connection
 
-This version of `rig-sim-remote` is compatible with `rig-sim 0.5.0`
+This version of `rig-sim-remote` is compatible with `rig-sim 0.6.0`
 
 #### Installing dependencies
 
